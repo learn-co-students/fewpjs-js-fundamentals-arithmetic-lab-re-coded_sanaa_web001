@@ -1,3 +1,4 @@
+
 const chai = require('chai')
 const sinon = require('sinon')
 global.expect = chai.expect
@@ -9,13 +10,13 @@ const babel = require('babel-core');
 const html = fs.readFileSync(path.resolve(__dirname, '..', 'index.html'), 'utf-8')
 
 const babelResult = babel.transformFileSync(
-  path.resolve(__dirname, '..', 'index.js'), {
-    presets: ['env']
-  }
+path.resolve(__dirname, '..', 'index.js'), {
+  presets: ['env']
+}
 );
 
 const src = babelResult.code
 
 jsdom({
-  html, src
+html, src
 });
